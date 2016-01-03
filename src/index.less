@@ -48,7 +48,7 @@ h2 {
 nav {
     ul {
         list-style-type: none;
-        margin: 0;
+        margin: 0 0 0 -5px;
         padding: 0;
 
         li {
@@ -56,7 +56,7 @@ nav {
         
             a {
                 font-size: 250%;
-                margin-right: 25px;
+                margin-right: 10px;
                 color: orange;
                 opacity: 0.75;
                 transition: opacity 0.25s;
@@ -72,14 +72,26 @@ nav {
     }
 }
 
-@media screen and (max-width:400px)  {
+@media screen and (max-width:500px)  {
     h1 {
-        font-size: 260%;
+        font-size: 300%;
+        text-align: center;
     }
     h2 {
-        font-size: 160%;
+        font-size: 195%;
+        text-align: center;
     }
     #content {
         bottom: 15%;
+    }
+    nav {
+        ul {
+            text-align: center;
+            li {
+                a {
+                    font-size: 195%;
+                }
+            }
+        }
     }
 }
