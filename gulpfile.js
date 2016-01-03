@@ -3,7 +3,7 @@ var gulp = require('gulp'),
     del = require('del')
     ;
 
-var development_host = '127.0.0.1';
+var development_host = '0.0.0.0';
 var development_port = 5000;
 
 var paths = {
