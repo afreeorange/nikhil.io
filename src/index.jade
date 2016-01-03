@@ -1,0 +1,40 @@
+doctype
+html
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name='description', content='Nikhil Anand, Des Moines, Iowa')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')
+        link(rel='stylesheet', href='/styles/app.css')
+        title Nikhil Anand
+    body
+        div#background
+        div#content
+            h1 Nikhil Anand
+            h2 Des Moines, Iowa
+            nav
+                ul
+                    li
+                        a(href="https://www.linkedin.com/in/afreeorange")
+                            i.fa.fa-linkedin-square
+                            span LinkedIn
+                    li
+                        a(href="https://instagram.com/afreeorange/")
+                            i.fa.fa-instagram
+                            span Instagram
+                    li
+                        a(href="/key")
+                            i.fa.fa-key
+                            span Public Key
+                    li
+                        a(href="mailto:mail@nikhil.io")
+                            i.fa.fa-envelope-o
+                            span Mail
+
+        script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js')
+        script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js')
+        script.
+            var background = 'https://scontent-ord1-1.cdninstagram.com/hphotos-xta1/t51.2885-15/e35/12357747_557589441065262_2048336303_n.jpg';
+            $('#background').backstretch(background, {'fade': 'slow'});

@@ -1,0 +1,23 @@
+{
+  "name": "nikhil.io",
+  "description": "Nikhil's personal website",
+  "main": "index.js",
+  "authors": [
+    "Nikhil Anand"
+  ],
+  "license": "MIT",
+  "moduleType": [
+    "es6"
+  ],
+  "homepage": "https://nikhil.io",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "gulp": "~3.9.0"
+  }
+}

@@ -1,0 +1,71 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+html, body, h1, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: black;
+    color: white;
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -999;
+    -webkit-filter: blur(5px);
+    opacity: 0.65;
+}
+
+#content {
+    position: absolute;
+    bottom: 25%;
+    left: 10%;    
+}
+
+h1 {
+    font-size: 350%;
+    font-weight: bold;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+    color: aqua;
+}
+
+h2 {
+    margin-bottom: 25px;
+    opacity: 0.5;
+    text-transform: uppercase;
+    opacity: 0.5;
+    font-size: 215%;
+}
+
+nav {
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            display: inline-block;
+        
+            a {
+                font-size: 250%;
+                margin-right: 25px;
+                color: white;
+                transition: text-shadow 0.25s;
+            }
+            a:hover {
+                opacity: 1;
+                text-shadow: 1px 1px 15px black;
+            }
+            span {
+                display: none;
+            }
+        }
+    }
+}
