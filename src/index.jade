@@ -43,6 +43,39 @@ html
 
         script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js')
         script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js')
+        script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/tinycolor/1.3.0/tinycolor.min.js')
+        script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.0.1/color-thief.min.js')
         script.
-            var background = 'https://scontent-ord1-1.cdninstagram.com/hphotos-xpt1/t51.2885-15/s640x640/sh0.08/e35/11259898_955610757819100_1495914107_n.jpg';
-            $('#background').backstretch(background, {'fade': 'slow'});
+            $(window).load(function() {
+                var background_uris = [
+                    'https://scontent-ord1-1.cdninstagram.com/hphotos-xta1/t51.2885-15/e35/10607961_1718832098350422_1480823775_n.jpg',
+                    'https://scontent-ord1-1.cdninstagram.com/hphotos-xft1/t51.2885-15/e35/10576226_1534062850244508_402137501_n.jpg',
+                    'https://scontent-ord1-1.cdninstagram.com/hphotos-xtp1/t51.2885-15/e35/12331535_1641812612738502_1730222135_n.jpg',
+                    'https://scontent-ord1-1.cdninstagram.com/hphotos-xpt1/t51.2885-15/e35/12346265_450436518494741_101438328_n.jpg',
+                    'https://scontent-ord1-1.cdninstagram.com/hphotos-xta1/t51.2885-15/e35/12357747_557589441065262_2048336303_n.jpg',
+                    'https://scontent-ord1-1.cdninstagram.com/hphotos-xap1/t51.2885-15/e35/12362117_213910795608796_689815075_n.jpg',
+                    'https://scontent-ord1-1.cdninstagram.com/hphotos-xpt1/t51.2885-15/e35/11326228_726732557426208_1753976465_n.jpg',
+                    'https://scontent-ord1-1.cdninstagram.com/hphotos-xaf1/t51.2885-15/e35/11381370_458769554285255_1333937868_n.jpg',
+                    'https://scontent-ord1-1.cdninstagram.com/hphotos-xtp1/t51.2885-15/e35/12093657_1649453368605364_1080399448_n.jpg',
+                    'https://scontent-ord1-1.cdninstagram.com/hphotos-xat1/t51.2885-15/e35/12142699_162337884118038_590256129_n.jpg'
+                ];
+                var random_uri = background_uris[Math.floor(Math.random() * background_uris.length)];
+
+                var background_image = new Image();
+                background_image.crossOrigin="anonymous"
+                background_image.src = random_uri;
+                
+                background_image.onload = function(){
+                    var colorThief = new ColorThief();
+                    var dominant_color = colorThief.getColor(background_image); 
+                    var colors = {
+                        'r': dominant_color[0],
+                        'g': dominant_color[1],
+                        'b': dominant_color[2]
+                    }
+                    $('h1').css('color', tinycolor(colors).lighten(25).saturate(50));
+                    $('nav ul li a').css('color', tinycolor(colors).lighten(25).saturate(50));
+                };
+
+                $('#background').backstretch(random_uri, {'fade': 'slow'});
+            });
