@@ -11,16 +11,19 @@ var paths = {
         styles: [
             'bower_components/font-awesome/css/font-awesome.min.css'
         ],
+        scripts: [
+            'bower_components/instafeed.js/instafeed.min.js'
+        ],
         fonts: [
             'bower_components/font-awesome/fonts/**'
         ]
     },
     app: {
         styles: [
-            'src/**/*.less'
+            'src/**/*.sass'
         ],
         scripts: [
-            'src/**/*.js'
+            'src/**/*.coffee'
         ],
         templates: [
             'src/**/*.jade'
@@ -43,8 +46,15 @@ gulp.task('fonts', ['vendor.fonts'], function() {
 
 // ------ Scripts ------    
 
+gulp.task('vendor.scripts', [], function() {
+    return gulp.src(paths.vendor.scripts)
+               .pipe($.concat('vendor.js'))
+               .pipe(gulp.dest(paths.destination + '/scripts'));
+});
+
 gulp.task('app.scripts', [], function() {
-    return gulp.src(paths.app.scripts)
+    return gulp.src(paths.app.scripts.concat(paths.app.scripts))
+               .pipe($.coffee())
                .pipe($.debug())
                .pipe($.jshint())
                .pipe($.jshint.reporter('jshint-stylish'))
@@ -53,7 +63,7 @@ gulp.task('app.scripts', [], function() {
                .pipe(gulp.dest(paths.destination + '/scripts'));
 });
 
-gulp.task('scripts', ['app.scripts'], function() {
+gulp.task('scripts', ['vendor.scripts', 'app.scripts'], function() {
     return;
 });
 
@@ -62,8 +72,8 @@ gulp.task('scripts', ['app.scripts'], function() {
 gulp.task('app.styles', [], function() {
     return gulp.src(paths.vendor.styles.concat(paths.app.styles))
                .pipe($.debug())
-               .pipe($.concat('app.less'))
-               .pipe($.less())
+               .pipe($.concat('app.sass'))
+               .pipe($.sass())
                .pipe($.recess({noIDs: false, strictPropertyOrder: false, noOverqualifying: false, noUnderscores: false, noUniversalSelectors: false})) // Because it's 2AM and I don't care.
                .pipe($.recess.reporter())
                .pipe($.autoprefixer())

@@ -18,6 +18,7 @@
     "tests"
   ],
   "dependencies": {
-    "gulp": "~3.9.0"
+    "gulp": "~3.9.0",
+    "instafeed.js": "~1.4.1"
   }
 }
