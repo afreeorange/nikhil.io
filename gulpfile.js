@@ -1,4 +1,5 @@
 var gulp = require('gulp'),
+    browserSync = require('browser-sync').create(),
     $ = require('gulp-load-plugins')({pattern: ['gulp-*', 'gulp.*'], camelize: true}),
     del = require('del')
     ;
@@ -44,7 +45,7 @@ gulp.task('fonts', ['vendor.fonts'], function() {
     return;
 });
 
-// ------ Scripts ------    
+// ------ Scripts ------
 
 gulp.task('vendor.scripts', [], function() {
     return gulp.src(paths.vendor.scripts)
@@ -60,7 +61,8 @@ gulp.task('app.scripts', [], function() {
                .pipe($.jshint.reporter('jshint-stylish'))
                .pipe($.uglify())
                .pipe($.concat('app.js'))
-               .pipe(gulp.dest(paths.destination + '/scripts'));
+               .pipe(gulp.dest(paths.destination + '/scripts'))
+               .pipe(browserSync.reload({stream:true}));
 });
 
 gulp.task('scripts', ['vendor.scripts', 'app.scripts'], function() {
@@ -79,7 +81,8 @@ gulp.task('app.styles', [], function() {
                .pipe($.autoprefixer())
                .pipe($.cssmin())
                .pipe($.rename('app.css'))
-               .pipe(gulp.dest(paths.destination + '/styles'));
+               .pipe(gulp.dest(paths.destination + '/styles'))
+               .pipe(browserSync.stream());
 });
 
 gulp.task('styles', ['app.styles'], function() {
@@ -93,31 +96,26 @@ gulp.task('templates', [], function() {
                .pipe($.debug())
                .pipe($.jade())
                .pipe($.rename('index.html'))
-               .pipe(gulp.dest(paths.destination));
+               .pipe(gulp.dest(paths.destination))
+               .pipe(browserSync.reload({stream:true}));
 });
 
 // ------ Other tasks ------
-
-gulp.task('watch', ['app.styles', 'app.scripts', 'templates'], function() {
-    gulp.watch(paths.app.styles, ['app.styles']);
-    gulp.watch(paths.app.scripts, ['app.scripts']);
-    gulp.watch(paths.app.templates, ['app.scripts', 'templates']);
-});
 
 gulp.task('clean', [], function() {
     del(paths.destination);
 });
 
 gulp.task('serve', [], function() {
-    gulp.src(paths.destination)
-    .pipe($.webserver({
-        host: development_host,
-        port: development_port,
-        livereload: true,
-        directoryListing: false,
-        fallback: 'index.html',
-        open: false
-    }));
+    browserSync.init({
+        server: {
+            baseDir: paths.destination
+        }
+    });
+
+    gulp.watch(paths.app.styles, ['app.styles']);
+    gulp.watch(paths.app.scripts, ['app.scripts']);
+    gulp.watch(paths.app.templates, ['templates']);
 });
 
 // ------ Main task ------

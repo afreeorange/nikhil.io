@@ -31,7 +31,7 @@ $(window).load ->
                     'g': dominant_color[1],
                     'b': dominant_color[2]
 
-                $('h1').css 'color', tinycolor(colors).lighten(25).saturate(100)
+                $('h1').css 'color', tinycolor(colors).lighten(50).saturate(100)
                 $('nav ul li a').css 'color', tinycolor(colors).saturate(50).lighten(35)
 
              $('#background').backstretch random_background_uri, {'fade': 'slow'};
