@@ -28,6 +28,9 @@ var paths = {
         ],
         templates: [
             'src/**/*.jade'
+        ],
+        fonts: [
+            'src/fonts/**'
         ]
     },
     source: 'src',
@@ -41,7 +44,12 @@ gulp.task('vendor.fonts', [], function() {
                .pipe(gulp.dest(paths.destination + '/fonts'));
 });
 
-gulp.task('fonts', ['vendor.fonts'], function() {
+gulp.task('app.fonts', [], function() {
+    return gulp.src(paths.app.fonts)
+               .pipe(gulp.dest(paths.destination + '/fonts'));
+});
+
+gulp.task('fonts', ['vendor.fonts', 'app.fonts'], function() {
     return;
 });
 
@@ -120,6 +128,6 @@ gulp.task('serve', [], function() {
 
 // ------ Main task ------
 
-gulp.task('default', ['clean', 'styles', 'scripts', 'templates'], function() {
+gulp.task('default', ['clean', 'fonts', 'styles', 'scripts', 'templates'], function() {
     return;
 });
