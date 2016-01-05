@@ -22,7 +22,8 @@ $(window).load ->
             background_image.src = random_background_uri
 
             $('#instagram a').show().attr 'href', random_instagram_image.link
-
+            $('#instagram a small').text random_instagram_image.location.name
+                                    
             background_image.onload = ->
                 colorThief = new ColorThief()
                 dominant_color = colorThief.getColor(background_image)

@@ -10,9 +10,14 @@ var development_port = 5000;
 var paths = {
     vendor: {
         styles: [
+            'bower_components/reset-css/reset.css',
             'bower_components/font-awesome/css/font-awesome.min.css'
         ],
         scripts: [
+            'bower_components/jquery/dist/jquery.min.js',
+            'bower_components/jquery-backstretch/jquery.backstretch.min.js',
+            'bower_components/tinycolor/dist/tinycolor-min.js',
+            'bower_components/color-thief/dist/color-thief.min.js',
             'bower_components/instafeed.js/instafeed.min.js'
         ],
         fonts: [
@@ -62,7 +67,7 @@ gulp.task('vendor.scripts', [], function() {
 });
 
 gulp.task('app.scripts', [], function() {
-    return gulp.src(paths.app.scripts.concat(paths.app.scripts))
+    return gulp.src(paths.app.scripts)
                .pipe($.coffee())
                .pipe($.debug())
                .pipe($.jshint())
@@ -79,21 +84,33 @@ gulp.task('scripts', ['vendor.scripts', 'app.scripts'], function() {
 
 // ------ Styles ------
 
+gulp.task('vendor.styles', [], function() {
+    return gulp.src(paths.vendor.styles)
+               .pipe($.cssmin())
+               .pipe($.concat('vendor.css'))
+               .pipe(gulp.dest(paths.destination + '/styles'))
+               .pipe(browserSync.stream());
+});
+
 gulp.task('app.styles', [], function() {
-    return gulp.src(paths.vendor.styles.concat(paths.app.styles))
+    return gulp.src(paths.app.styles)
                .pipe($.debug())
                .pipe($.concat('app.sass'))
                .pipe($.sass())
                .pipe($.recess({noIDs: false, strictPropertyOrder: false, noOverqualifying: false, noUnderscores: false, noUniversalSelectors: false})) // Because it's 2AM and I don't care.
                .pipe($.recess.reporter())
                .pipe($.autoprefixer())
-               .pipe($.cssmin())
+               .pipe($.cssmin(
+                  {
+                    'advanced': false
+                  }
+                ))
                .pipe($.rename('app.css'))
                .pipe(gulp.dest(paths.destination + '/styles'))
                .pipe(browserSync.stream());
 });
 
-gulp.task('styles', ['app.styles'], function() {
+gulp.task('styles', ['vendor.styles', 'app.styles'], function() {
     return;
 });
 

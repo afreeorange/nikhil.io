@@ -5,13 +5,14 @@ html
         meta(http-equiv='X-UA-Compatible', content='IE=edge')
         meta(name='description', content='Nikhil Anand, Des Moines, Iowa')
         meta(name='viewport', content='width=device-width, initial-scale=1')
-        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css')
-        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')
+        link(rel='stylesheet', href='/styles/vendor.css')
         link(rel='stylesheet', href='/styles/app.css')
         title Nikhil Anand
     body
         #instagram
-            a #[i.fa.fa-camera]
+            a
+                i.fa.fa-location-arrow
+                small
             span Insta&ndash;#[i.fa.fa-frown-o]
 
         #background
@@ -46,9 +47,5 @@ html
                             i.fa.fa-fw.fa-envelope
                             span Mail
 
-        script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js')
-        script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js')
-        script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/tinycolor/1.3.0/tinycolor.min.js')
-        script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.0.1/color-thief.min.js')
         script(type='text/javascript' src='/scripts/vendor.js')
         script(type='text/javascript' src='/scripts/app.js')
