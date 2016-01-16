@@ -26,32 +26,32 @@ var paths = {
     },
     app: {
         styles: [
-            'src/**/*.sass'
+            '**/*.sass'
         ],
         scripts: [
-            'src/**/*.coffee'
+            '**/*.coffee'
         ],
         templates: [
-            'src/**/*.jade'
+            '**/*.jade'
         ],
         fonts: [
-            'src/fonts/**'
+            'fonts/**'
         ]
     },
-    source: 'src',
-    destination: 'dist'
+    source: 'src/',
+    destination: 'dist/'
 }
 
 // ------ Fonts ------
 
 gulp.task('vendor.fonts', [], function() {
     return gulp.src(paths.vendor.fonts)
-               .pipe(gulp.dest(paths.destination + '/fonts'));
+               .pipe(gulp.dest(paths.destination + 'fonts'));
 });
 
 gulp.task('app.fonts', [], function() {
-    return gulp.src(paths.app.fonts)
-               .pipe(gulp.dest(paths.destination + '/fonts'));
+    return gulp.src(paths.source + paths.app.fonts)
+               .pipe(gulp.dest(paths.destination + 'fonts'));
 });
 
 gulp.task('fonts', ['vendor.fonts', 'app.fonts'], function() {
@@ -63,18 +63,18 @@ gulp.task('fonts', ['vendor.fonts', 'app.fonts'], function() {
 gulp.task('vendor.scripts', [], function() {
     return gulp.src(paths.vendor.scripts)
                .pipe($.concat('vendor.js'))
-               .pipe(gulp.dest(paths.destination + '/scripts'));
+               .pipe(gulp.dest(paths.destination + 'scripts'));
 });
 
 gulp.task('app.scripts', [], function() {
-    return gulp.src(paths.app.scripts)
+    return gulp.src(paths.source + paths.app.scripts)
                .pipe($.coffee())
                .pipe($.debug())
                .pipe($.jshint())
                .pipe($.jshint.reporter('jshint-stylish'))
                .pipe($.uglify())
                .pipe($.concat('app.js'))
-               .pipe(gulp.dest(paths.destination + '/scripts'))
+               .pipe(gulp.dest(paths.destination + 'scripts'))
                .pipe(browserSync.reload({stream:true}));
 });
 
@@ -88,12 +88,12 @@ gulp.task('vendor.styles', [], function() {
     return gulp.src(paths.vendor.styles)
                .pipe($.cssmin())
                .pipe($.concat('vendor.css'))
-               .pipe(gulp.dest(paths.destination + '/styles'))
+               .pipe(gulp.dest(paths.destination + 'styles'))
                .pipe(browserSync.stream());
 });
 
 gulp.task('app.styles', [], function() {
-    return gulp.src(paths.app.styles)
+    return gulp.src(paths.source + paths.app.styles)
                .pipe($.debug())
                .pipe($.concat('app.sass'))
                .pipe($.sass())
@@ -106,7 +106,7 @@ gulp.task('app.styles', [], function() {
                   }
                 ))
                .pipe($.rename('app.css'))
-               .pipe(gulp.dest(paths.destination + '/styles'))
+               .pipe(gulp.dest(paths.destination + 'styles'))
                .pipe(browserSync.stream());
 });
 
@@ -117,7 +117,7 @@ gulp.task('styles', ['vendor.styles', 'app.styles'], function() {
 // ------ Templates ------
 
 gulp.task('templates', [], function() {
-    return gulp.src(paths.app.templates)
+    return gulp.src(paths.source + paths.app.templates)
                .pipe($.debug())
                .pipe($.jade())
                .pipe($.rename('index.html'))
@@ -138,9 +138,9 @@ gulp.task('serve', [], function() {
         }
     });
 
-    gulp.watch(paths.app.styles, ['app.styles']);
-    gulp.watch(paths.app.scripts, ['app.scripts']);
-    gulp.watch(paths.app.templates, ['templates']);
+    gulp.watch(paths.source + paths.app.styles, ['app.styles']);
+    gulp.watch(paths.source + paths.app.scripts, ['app.scripts']);
+    gulp.watch(paths.source + paths.app.templates, ['templates']);
 });
 
 // ------ Main task ------
