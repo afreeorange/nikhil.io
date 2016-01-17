@@ -5,12 +5,10 @@ $(window).load ->
 
     userFeed = new Instafeed(
 
-        get: 'tagged',
+        get: 'user',
         userId: '964162',
         accessToken: '964162.cf1e7d8.777feff80324427c8dcda940423b2c44',
-        tagName: 'iowa',
-        mock: true, # Doesn't automatically populate DOM
-        limit: 50,
+        mock: true, # Don't automatically populate DOM
 
         error: (message) ->
             console.log '!!! ' + message
