@@ -18,7 +18,8 @@ var paths = {
             'bower_components/jquery-backstretch/jquery.backstretch.min.js',
             'bower_components/tinycolor/dist/tinycolor-min.js',
             'bower_components/color-thief/dist/color-thief.min.js',
-            'bower_components/instafeed.js/instafeed.min.js'
+            'bower_components/instafeed.js/instafeed.min.js',
+            'bower_components/jquery-circle-progress/dist/circle-progress.js'
         ],
         fonts: [
             'bower_components/font-awesome/fonts/**'

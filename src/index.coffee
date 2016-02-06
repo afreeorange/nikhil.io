@@ -1,7 +1,15 @@
+rgbaFromColor = (tinyColorObject) ->
+    'rgba(' + 
+        Math.round(tinyColorObject._r) + ',' + 
+        Math.round(tinyColorObject._g) + ',' + 
+        Math.round(tinyColorObject._b) + ', 1)'
+
 $(window).load ->
 
     background_image = new Image()
     background_image.crossOrigin = 'anonymous'
+    colorThief = new ColorThief()
+    timeoutDuration = 4500
 
     userFeed = new Instafeed(
 
@@ -15,25 +23,59 @@ $(window).load ->
             $('#instagram span').show()
 
         success: (response) ->
-            random_instagram_image = response.data[Math.floor(Math.random() * response.data.length)]
-            random_background_uri = random_instagram_image.images.standard_resolution.url
-            background_image.src = random_background_uri
 
-            $('#instagram a').show().attr 'href', random_instagram_image.link
-            $('#instagram a small').text random_instagram_image.location.name
-                                    
-            background_image.onload = ->
-                colorThief = new ColorThief()
-                dominant_color = colorThief.getColor(background_image)
-                colors =
-                    'r': dominant_color[0],
-                    'g': dominant_color[1],
-                    'b': dominant_color[2]
+            i = 0
 
-                $('h1').css 'color', tinycolor(colors).lighten(50).saturate(100)
-                $('nav ul li a').css 'color', tinycolor(colors).saturate(50).lighten(35)
+            cycleImages = ->
+                instagram_image = response.data[i]
+                background_image.src = instagram_image.images.standard_resolution.url
 
-             $('#background').backstretch random_background_uri, {'fade': 'slow'};
+                $('#instagram a').show().attr 'href', instagram_image.link
+                $('#instagram a small').text instagram_image.location.name if instagram_image.location
+
+                background_image.onload = ->
+                    dominant_color = colorThief.getColor(background_image)
+                    colors =
+                        'r': dominant_color[0],
+                        'g': dominant_color[1],
+                        'b': dominant_color[2]
+
+                    mainColor = tinycolor(colors).lighten(50).saturate(100)
+                    secondaryColor = tinycolor(colors).saturate(50).lighten(35)
+
+                    $('h1').css
+                        'color': mainColor
+                        WebkitTransition : 'color 1s'
+                        MozTransition    : 'color 1s'
+                        MsTransition     : 'color 1s'
+                        OTransition      : 'color 1s'
+                        transition       : 'color 1s'
+                    $('nav ul li a').css
+                        'color': secondaryColor
+                        WebkitTransition : 'color 1s'
+                        MozTransition    : 'color 1s'
+                        MsTransition     : 'color 1s'
+                        OTransition      : 'color 1s'
+                        transition       : 'color 1s'
+
+                    $('#countdown').circleProgress
+                        value: 1
+                        size: 25
+                        thickness: 5
+                        lineCap: 'round'
+                        animation:
+                            duration: timeoutDuration
+                        fill:
+                            color: rgbaFromColor(mainColor)
+
+                $('#background').backstretch instagram_image.images.standard_resolution.url, {'fade': 'slow'};
+
+                i++
+                i = 0 if i >= response.data.length - 1
+
+                setTimeout cycleImages, timeoutDuration
+
+            cycleImages()
 
         )
 
