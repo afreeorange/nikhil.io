@@ -1,7 +1,7 @@
 {
   "name": "nikhil.io",
   "description": "Nikhil's personal website",
-  "main": "index.js",
+  "main": "index.html",
   "authors": [
     "Nikhil Anand"
   ],
@@ -17,7 +17,6 @@
   "dependencies": {
     "gulp": "~3.9.0",
     "instafeed.js": "~1.4.1",
-    "font-awesome": "~4.5.0",
     "reset-css": "~2.0.2011012602",
     "jquery": "~2.1.4",
     "jquery-backstretch": "~2.0.4",

@@ -1,0 +1,114 @@
+$text-color: #FFE100 // GO HAWKS
+
+@font-face
+    font-family: '85CA4713-1006-482F-8EDA-B24A9051644F';
+    src: url('/fonts/85CA4713-1006-482F-8EDA-B24A9051644F/85CA4713-1006-482F-8EDA-B24A9051644F-300.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+
+@font-face
+    font-family: '85CA4713-1006-482F-8EDA-B24A9051644F';
+    src: url('/fonts/85CA4713-1006-482F-8EDA-B24A9051644F/85CA4713-1006-482F-8EDA-B24A9051644F-500.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+
+@font-face
+    font-family: '85CA4713-1006-482F-8EDA-B24A9051644F';
+    src: url('/fonts/85CA4713-1006-482F-8EDA-B24A9051644F/85CA4713-1006-482F-8EDA-B24A9051644F-700.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+
+@font-face
+    font-family: '85CA4713-1006-482F-8EDA-B24A9051644F';
+    src: url('/fonts/85CA4713-1006-482F-8EDA-B24A9051644F/85CA4713-1006-482F-8EDA-B24A9051644F-900.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+
+body
+    background: #000
+    color: $text-color
+    font-family: '85CA4713-1006-482F-8EDA-B24A9051644F', 'Inconsolata'
+    font-kerning: normal
+    font-size: 125%
+    font-variant-ligatures: discretionary-ligatures
+    font-variant: common-ligatures, small-caps
+    line-height: 1.5
+    text-align: left
+    overflow: hidden
+
+#background
+    filter: blur(5px)
+    position: absolute
+    top: 0
+    left: 0
+    margin: -1em
+    width: 105%
+    height: 105%
+    z-index: -999
+    opacity: 0.45
+
+#instagram
+    position: absolute
+    bottom: 0.25em
+    right: 0.5em
+    font-size: 0.70em
+
+    a
+        text-decoration: none
+        color: white
+        opacity: 0.35
+
+    a:hover
+        transition: opacity 0.5s
+        opacity: 1
+
+    span
+        display: none
+        color: lighten(#000, 10)
+
+        strong
+            font-weight: 900
+
+#container
+    margin: 3.5em
+    width: 31em
+
+    h1
+        font-size: 3em
+        font-weight: 900
+        margin-bottom: 0.75em
+        transition: color 1s ease
+
+        #real-o
+            display: none
+
+        #countdown
+            display: inline
+
+    p
+        font-size: 1.5em
+        font-weight: 300
+
+        small
+            font-size: 0.75em
+
+        strong
+            font-weight: 900
+
+    a
+        color: $text-color
+        text-decoration: none
+        border-bottom: 3px solid darken($text-color, 40)
+
+    a:hover
+        border-bottom: 3px solid darken($text-color, 15)
+        transition: border-bottom 0.5s
+
+    nav
+        margin-top: 2em
+        font-size: 1.15em
+
+        ul
+            li
+                display: inline
+                margin-right: 0.75em
