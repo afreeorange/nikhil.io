@@ -1,0 +1,165 @@
+$text-color: #FFE100 // GO HAWKS
+
+@font-face
+    font-family: '85CA4713-1006-482F-8EDA-B24A9051644F';
+    src: url('/fonts/85CA4713-1006-482F-8EDA-B24A9051644F/85CA4713-1006-482F-8EDA-B24A9051644F-300.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+
+@font-face
+    font-family: '85CA4713-1006-482F-8EDA-B24A9051644F';
+    src: url('/fonts/85CA4713-1006-482F-8EDA-B24A9051644F/85CA4713-1006-482F-8EDA-B24A9051644F-500.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+
+@font-face
+    font-family: '85CA4713-1006-482F-8EDA-B24A9051644F';
+    src: url('/fonts/85CA4713-1006-482F-8EDA-B24A9051644F/85CA4713-1006-482F-8EDA-B24A9051644F-700.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+
+@font-face
+    font-family: '85CA4713-1006-482F-8EDA-B24A9051644F';
+    src: url('/fonts/85CA4713-1006-482F-8EDA-B24A9051644F/85CA4713-1006-482F-8EDA-B24A9051644F-900.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+
+body
+    background: #000
+    color: $text-color
+    font-family: '85CA4713-1006-482F-8EDA-B24A9051644F', 'Inconsolata'
+    font-kerning: normal
+    font-size: 125%
+    font-variant-ligatures: discretionary-ligatures
+    font-variant: common-ligatures, small-caps
+    line-height: 1.5
+    text-align: left
+    overflow: hidden
+
+#background
+    filter: blur(3px)
+    position: absolute
+    top: 0
+    left: 0
+    margin: -1em
+    width: 105%
+    height: 105%
+    z-index: -999
+    opacity: 0.45
+
+#instagram
+    position: absolute
+    bottom: 0.25em
+    right: 0.5em
+    font-size: 0.75em
+
+    a
+        text-decoration: none
+        color: white
+        opacity: 0.35
+
+    a:hover
+        transition: opacity 0.5s
+        opacity: 1
+
+    span
+        display: none
+        color: lighten(#000, 10)
+
+        strong
+            font-weight: 900
+
+#container
+    padding: 3.5em
+    width: 31em
+
+    h1
+        font-size: 3em
+        font-weight: 900
+        margin-bottom: 0.75em
+        transition: color 1s ease
+        text-shadow: 1px 1px 25px #000
+
+        #real-o
+            display: none
+
+        #countdown
+            display: inline-block
+            width: 0.5em
+            height: 0.5em
+
+    p
+        font-size: 1.5em
+        font-weight: 300
+        text-shadow: 1px 1px 25px #000
+
+        small
+            font-size: 0.75em
+
+        strong
+            font-weight: 900
+
+    a
+        color: $text-color
+        text-decoration: none
+        border-bottom: 3px solid darken($text-color, 40)
+        transition: color 0.5s, border-bottom 0.5s
+
+    a:hover
+        border-bottom: 3px solid darken($text-color, 15)
+        transition: border-bottom 0.5s
+
+    nav
+        margin-top: 2em
+        font-size: 1.15em
+        text-shadow: 1px 1px 25px #000
+
+        .mobile-hide
+            display: none
+
+        ul
+            li
+                display: inline
+                margin-right: 1em
+
+@media screen and (max-width: 735px)
+    body
+        font-size: 120%
+
+@media screen and (max-width: 630px)
+    body
+        font-size: 100%
+
+@media screen and (max-width: 550px)
+    body
+        font-size: 90%
+
+@media screen and (max-width: 450px)
+    body
+        font-size: 90%
+
+    #instagram
+        font-size: 1em
+
+    #container
+        width: auto
+        padding: 1em
+
+        p
+            br
+                display: none
+
+        nav
+            font-size: 1.30em
+
+            .mobile-hide
+                display: block
+
+            ul
+                width: 100%
+                text-align: left
+
+                li
+                    margin: 0 0 1em 0
+                    display: inline-block
+                    width: 33%

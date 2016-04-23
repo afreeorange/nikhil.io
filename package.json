@@ -2,7 +2,7 @@
   "name": "nikhil.io",
   "version": "1.0.0",
   "description": "Nikhil's personal website",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,7 +16,9 @@
     "url": "https://github.com/afreeorange/nikhil.io/issues"
   },
   "homepage": "https://nikhil.io",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.11.0",
     "del": "^2.2.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
@@ -24,18 +26,17 @@
     "gulp-concat": "^2.6.0",
     "gulp-cssmin": "^0.1.7",
     "gulp-debug": "^2.1.2",
+    "gulp-filter": "^4.0.0",
     "gulp-jade": "^1.1.0",
     "gulp-jshint": "^2.0.0",
     "gulp-load-plugins": "^1.1.0",
     "gulp-recess": "^1.2.0",
     "gulp-rename": "^1.2.2",
+    "gulp-rimraf": "^0.2.0",
     "gulp-sass": "^2.1.1",
     "gulp-uglify": "^1.5.1",
+    "gulp-webserver": "^0.9.1",
     "jshint": "^2.8.0",
     "jshint-stylish": "^2.1.0"
-  },
-  "devDependencies": {
-    "gulp-webserver": "^0.9.1",
-    "browser-sync": "^2.11.0"
   }
 }
