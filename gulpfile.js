@@ -32,11 +32,21 @@ var paths = {
         templates: [
             source + '**/*.jade'
         ],
+        images: [
+            source + 'img/*.png'
+        ],
         fonts: [
             source + 'fonts/**'
         ]
     }
 }
+
+// ------ Images ------
+
+gulp.task('images', [], function() {
+    return gulp.src(paths.app.images)
+               .pipe(gulp.dest(destination + 'img'));
+});
 
 // ------ Fonts ------
 
@@ -159,6 +169,6 @@ gulp.task('serve', [], function() {
 
 // ------ Main task ------
 
-gulp.task('default', ['clean', 'fonts', 'build:styles', 'build:scripts', 'build:templates'], function() {
+gulp.task('default', ['clean', 'fonts', 'images', 'build:styles', 'build:scripts', 'build:templates'], function() {
     return;
 });
