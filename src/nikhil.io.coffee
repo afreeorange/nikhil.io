@@ -11,6 +11,14 @@ $(window).load ->
     timeoutDuration = 4000
     reverseSpin = false
 
+    bar = new (ProgressBar.Circle)('#countdown',
+      strokeWidth: 25
+      trailWidth: 10
+      trailColor: '#FF3300'
+      easing: 'easeInOut'
+      duration: 4000
+    )
+
     userFeed = new Instafeed(
 
         get: 'user',
@@ -47,29 +55,14 @@ $(window).load ->
                     linkColor = tinycolor(colors).saturate(100).brighten(50)
                     borderColor = rgbaFromColor(linkColor, 0.25)
 
-                    if !reverseSpin
-                        circleColor = rgbaFromColor(headingColor, 1)
-                        trackColor = rgbaFromColor(paragraphColor, 0.2)
-                    else
-                        trackColor = rgbaFromColor(headingColor, 1)
-                        circleColor = rgbaFromColor(paragraphColor, 0.2)
-
                     $('h1').css
                         'color': headingColor
 
+                    $('#countdown svg path:nth-child(1)').attr('stroke', linkColor)
+                    $('#countdown svg path:nth-child(2)').attr('stroke', headingColor)
+
                     $('p').css
                         'color': paragraphColor
-
-                    $('#countdown').circleProgress
-                        value: 1.0
-                        size: 32
-                        thickness: 9
-                        lineCap: 'square'
-                        animation:
-                            duration: timeoutDuration
-                        fill:
-                            color: circleColor
-                        emptyFill: trackColor
 
                     $('#container a').css
                         'color': linkColor
@@ -83,6 +76,9 @@ $(window).load ->
                         $(this).css
                             'border-bottom': '3px solid ' + borderColor
                             'background': 'transparent'
+
+                    bar.set 0
+                    bar.animate 1.0
 
                 $('#background').backstretch instagram_image.images.standard_resolution.url, {'fade': 'slow'}
 

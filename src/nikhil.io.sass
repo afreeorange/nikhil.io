@@ -51,7 +51,7 @@ body
     position: absolute
     bottom: 0.25em
     right: 0.5em
-    font-size: 0.70em
+    font-size: 0.75em
 
     a
         text-decoration: none
@@ -70,7 +70,7 @@ body
             font-weight: 900
 
 #container
-    margin: 3.5em
+    padding: 3.5em
     width: 31em
 
     h1
@@ -83,7 +83,9 @@ body
             display: none
 
         #countdown
-            display: inline
+            display: inline-block
+            width: 0.5em
+            height: 0.5em
 
     p
         font-size: 1.5em
@@ -99,6 +101,7 @@ body
         color: $text-color
         text-decoration: none
         border-bottom: 3px solid darken($text-color, 40)
+        transition: color 2s, border-bottom 2s
 
     a:hover
         border-bottom: 3px solid darken($text-color, 15)
@@ -108,7 +111,48 @@ body
         margin-top: 2em
         font-size: 1.15em
 
+        .mobile-hide
+            display: none
+
         ul
             li
                 display: inline
                 margin-right: 0.75em
+
+@media screen and (max-width: 735px)
+    body
+        font-size: 120%
+
+@media screen and (max-width: 630px)
+    body
+        font-size: 100%
+
+@media screen and (max-width: 550px)
+    body
+        font-size: 90%
+
+@media screen and (max-width: 450px)
+    body
+        font-size: 90%
+
+    #container
+        width: auto
+        padding: 1em
+
+        p
+            br
+                display: none
+
+        nav
+            font-size: 1.35em
+
+            .mobile-hide
+                display: block
+
+            ul
+                text-align: left
+
+                li
+                    display: inline-block
+                    width: 4em
+                    margin-bottom: 1em

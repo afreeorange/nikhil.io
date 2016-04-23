@@ -10,8 +10,7 @@ var destination = 'dist/';
 var paths = {
     vendor: {
         styles: [
-            'bower_components/reset-css/reset.css',
-            // 'bower_components/font-awesome/css/font-awesome.min.css'
+            'bower_components/reset-css/reset.css'
         ],
         scripts: [
             'bower_components/jquery/dist/jquery.min.js',
@@ -19,11 +18,9 @@ var paths = {
             'bower_components/tinycolor/dist/tinycolor-min.js',
             'bower_components/color-thief/dist/color-thief.min.js',
             'bower_components/instafeed.js/instafeed.min.js',
-            'bower_components/jquery-circle-progress/dist/circle-progress.js'
+            'bower_components/progressbar.js/dist/progressbar.min.js',
         ],
-        fonts: [
-            // 'bower_components/font-awesome/fonts/**'
-        ]
+        fonts: []
     },
     app: {
         styles: [
