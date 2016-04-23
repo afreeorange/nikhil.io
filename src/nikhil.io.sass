@@ -37,7 +37,7 @@ body
     overflow: hidden
 
 #background
-    filter: blur(5px)
+    filter: blur(3px)
     position: absolute
     top: 0
     left: 0
@@ -78,6 +78,7 @@ body
         font-weight: 900
         margin-bottom: 0.75em
         transition: color 1s ease
+        text-shadow: 1px 1px 25px #000
 
         #real-o
             display: none
@@ -90,6 +91,7 @@ body
     p
         font-size: 1.5em
         font-weight: 300
+        text-shadow: 1px 1px 25px #000
 
         small
             font-size: 0.75em
@@ -101,7 +103,7 @@ body
         color: $text-color
         text-decoration: none
         border-bottom: 3px solid darken($text-color, 40)
-        transition: color 2s, border-bottom 2s
+        transition: color 0.5s, border-bottom 0.5s
 
     a:hover
         border-bottom: 3px solid darken($text-color, 15)
@@ -110,6 +112,7 @@ body
     nav
         margin-top: 2em
         font-size: 1.15em
+        text-shadow: 1px 1px 25px #000
 
         .mobile-hide
             display: none
@@ -117,7 +120,7 @@ body
         ul
             li
                 display: inline
-                margin-right: 0.75em
+                margin-right: 1em
 
 @media screen and (max-width: 735px)
     body
@@ -144,7 +147,7 @@ body
                 display: none
 
         nav
-            font-size: 1.35em
+            font-size: 1.30em
 
             .mobile-hide
                 display: block
