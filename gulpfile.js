@@ -169,6 +169,6 @@ gulp.task('serve', [], function() {
 
 // ------ Main task ------
 
-gulp.task('default', ['clean', 'fonts', 'images', 'build:styles', 'build:scripts', 'build:templates'], function() {
+gulp.task('default', ['clean', 'fonts', 'build:styles', 'build:scripts', 'build:templates'], function() {
     return;
 });

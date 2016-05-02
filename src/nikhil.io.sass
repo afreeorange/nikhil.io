@@ -127,6 +127,34 @@ body
                 display: inline
                 margin-right: 1.5em
 
+    #i-heart-dsm
+        position: relative
+        margin-left: 0.5em
+
+        #iowa
+            position: absolute
+            top: 0
+            left: 0
+
+            svg
+                width: 1.75em
+                g
+                    polyline
+                        fill: #FFF
+                        opacity: 0.35
+                        transition: fill 0.5s
+
+        #heart
+            position: absolute
+            top: -0.2em
+            left: 0.5em
+
+            svg
+                width: 0.65em
+                path
+                    fill: #FF3300
+                    transition: fill 0.5s
+
 @media screen and (max-width: 735px)
     body
         font-size: 120%

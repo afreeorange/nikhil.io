@@ -64,6 +64,12 @@ $(window).load ->
                     $('p').css
                         'color': paragraphColor
 
+                    $('#heart svg path').css
+                        'fill': headingColor
+
+                    $('#iowa svg polyline').css
+                        'fill': linkColor
+
                     $('#container a').css
                         'color': linkColor
                         'border-bottom': '3px solid ' + borderColor
