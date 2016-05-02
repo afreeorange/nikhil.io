@@ -29,7 +29,7 @@ $(window).load ->
         error: (message) ->
             console.log '!!! ' + message
             $('#countdown').hide()
-            $('.real-o').show()
+            $('#real-o').show()
             $('#instagram span').show()
 
         success: (response) ->
