@@ -1,7 +1,8 @@
 var gulp = require('gulp'),
     browserSync = require('browser-sync').create(),
     $ = require('gulp-load-plugins')({pattern: ['gulp-*', 'gulp.*'], camelize: true}),
-    del = require('del')
+    del = require('del'),
+    sassLint = require('gulp-sass-lint')
     ;
 
 var appName = 'nikhil.io';
@@ -114,11 +115,13 @@ gulp.task('build:styles:app', [], function() {
     return gulp.src(paths.app.styles)
                .pipe($.debug())
                .pipe(sassFilter)
+                .pipe(sassLint())
+                .pipe(sassLint.format())
                .pipe($.sass())
                .pipe(sassFilter.restore)
                .pipe($.rename('app.css'))
-               .pipe($.recess({noIDs: false, strictPropertyOrder: false, noOverqualifying: false, noUnderscores: false, noUniversalSelectors: false})) // Because it's 2AM and I don't care.
-               .pipe($.recess.reporter())
+               // .pipe($.recess({noIDs: false, strictPropertyOrder: false, noOverqualifying: false, noUnderscores: false, noUniversalSelectors: false})) // Because it's 2AM and I don't care.
+               // .pipe($.recess.reporter())
                .pipe($.autoprefixer())
                .pipe($.cssmin())
                .pipe(gulp.dest(destination))
