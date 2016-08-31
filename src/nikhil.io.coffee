@@ -1,3 +1,5 @@
+timeout = 4000
+
 rgbaFromColor = (tinyColorObject, opacity) ->
     'rgba(' + Math.round(tinyColorObject._r) + ',' + 
               Math.round(tinyColorObject._g) + ',' + 
@@ -8,15 +10,14 @@ $(window).load ->
     background_image = new Image()
     background_image.crossOrigin = 'anonymous'
     colorThief = new ColorThief()
-    timeoutDuration = 4000
-    reverseSpin = false
+    timeoutDuration = timeout
 
     bar = new (ProgressBar.Circle)('#countdown',
       strokeWidth: 25
       trailWidth: 10
       trailColor: '#FF3300'
       easing: 'easeInOut'
-      duration: 4000
+      duration: timeout
     )
 
     userFeed = new Instafeed(
@@ -84,14 +85,12 @@ $(window).load ->
                             'background': 'transparent'
 
                     bar.set 0
-                    bar.animate 1.0
+                    bar.animate 2.0
 
                 $('#background').backstretch instagram_image.images.standard_resolution.url, {'fade': 'slow'}
 
                 i++
                 i = 0 if i >= response.data.length - 1
-
-                reverseSpin = !reverseSpin
 
                 setTimeout cycleImages, timeoutDuration
 
