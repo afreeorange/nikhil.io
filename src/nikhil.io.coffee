@@ -11,6 +11,7 @@ $(window).load ->
     background_image.crossOrigin = 'anonymous'
     colorThief = new ColorThief()
     timeoutDuration = timeout
+    reverseSpin = false
 
     bar = new (ProgressBar.Circle)('#countdown',
       strokeWidth: 25
@@ -84,13 +85,19 @@ $(window).load ->
                             'border-bottom': '3px solid ' + borderColor
                             'background': 'transparent'
 
-                    bar.set 0
-                    bar.animate 2.0
+                    if reverseSpin
+                        bar.set 1
+                        bar.animate 0.0
+                    else
+                        bar.set 0
+                        bar.animate 1.0
 
                 $('#background').backstretch instagram_image.images.standard_resolution.url, {'fade': 'slow'}
 
                 i++
                 i = 0 if i >= response.data.length - 1
+
+                reverseSpin = !reverseSpin
 
                 setTimeout cycleImages, timeoutDuration
 
