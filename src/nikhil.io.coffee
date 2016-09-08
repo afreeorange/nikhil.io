@@ -86,11 +86,11 @@ $(window).load ->
                             'background': 'transparent'
 
                     if reverseSpin
-                        bar.set 1
-                        bar.animate 0.0
-                    else
                         bar.set 0
                         bar.animate 1.0
+                    else
+                        bar.set -1
+                        bar.animate 0.0
 
                 $('#background').backstretch instagram_image.images.standard_resolution.url, {'fade': 'slow'}
 
