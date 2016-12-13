@@ -85,11 +85,10 @@ $(document).ready ->
 
                     $('#container a').mouseenter(->
                         $(this).css
-                            'border-bottom': '3px solid ' + linkColor
-                            # 'background': rgbaFromColor(tinycolor(paragraphColor), 0.15)
+                            'border-bottom-color': linkColor
                     ).mouseleave ->
                         $(this).css
-                            'border-bottom': '3px solid ' + borderColor
+                            'border-bottom-color': borderColor
                             'background': 'transparent'
 
                     if reverseSpin
