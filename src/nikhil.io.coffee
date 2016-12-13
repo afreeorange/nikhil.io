@@ -1,12 +1,19 @@
+require './nikhil.io.sass'
+
+require 'jquery.backstretch'
+Instafeed = require 'instafeed.js'
+ProgressBar = require 'progressbar.js'
+tinycolor = require 'tinycolor2'
+ColorThief = require 'color-thief/js/color-thief'
+
 timeout = 4000
 
 rgbaFromColor = (tinyColorObject, opacity) ->
-    'rgba(' + Math.round(tinyColorObject._r) + ',' + 
-              Math.round(tinyColorObject._g) + ',' + 
+    'rgba(' + Math.round(tinyColorObject._r) + ',' +
+              Math.round(tinyColorObject._g) + ',' +
               Math.round(tinyColorObject._b) + ',' + opacity + ')'
 
-$(window).load ->
-
+$(document).ready ->
     background_image = new Image()
     background_image.crossOrigin = 'anonymous'
     colorThief = new ColorThief()
@@ -29,7 +36,7 @@ $(window).load ->
         mock: true, # Don't automatically populate DOM
 
         error: (message) ->
-            console.log '!!! ' + message
+            console.error message
             $('#countdown').hide()
             $('#real-o').show()
             $('#instagram span').show()
@@ -76,7 +83,7 @@ $(window).load ->
                         'color': linkColor
                         'border-bottom': '3px solid ' + borderColor
 
-                    $('#container a').mouseenter(-> 
+                    $('#container a').mouseenter(->
                         $(this).css
                             'border-bottom': '3px solid ' + linkColor
                             # 'background': rgbaFromColor(tinycolor(paragraphColor), 0.15)
