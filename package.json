@@ -21,7 +21,9 @@
     "pug": "^2.0.0-beta6",
     "pug-loader": "^2.3.0",
     "sass": "^0.5.0",
+    "sass-lint": "^1.10.2",
     "sass-loader": "^4.0.2",
+    "sasslint-webpack-plugin": "^1.0.4",
     "style-loader": "^0.13.1",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2"
