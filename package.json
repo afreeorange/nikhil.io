@@ -27,10 +27,10 @@
     "webpack-dev-server": "^1.16.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rfv dist/",
     "build": "webpack --optimize-minimize",
-    "watch": "webpack --optimize-minimize --watch"
+    "watch": "webpack --optimize-minimize --watch",
+    "serve": "rm -rfv dist/ && webpack-dev-server --content-base dist/"
   },
   "repository": {
     "type": "git",
