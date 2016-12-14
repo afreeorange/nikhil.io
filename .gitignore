@@ -1,2 +1,3 @@
 dist
-settings.py
+node_modules
+*yarn*
