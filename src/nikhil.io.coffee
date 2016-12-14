@@ -13,7 +13,7 @@ rgbaFromColor = (tinyColorObject, opacity) ->
               Math.round(tinyColorObject._g) + ',' +
               Math.round(tinyColorObject._b) + ',' + opacity + ')'
 
-$(document).ready ->
+window.onload = ->
     background_image = new Image()
     background_image.crossOrigin = 'anonymous'
     colorThief = new ColorThief()
