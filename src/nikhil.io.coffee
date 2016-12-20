@@ -5,6 +5,9 @@ Instafeed = require 'instafeed.js'
 ProgressBar = require 'progressbar.js'
 tinycolor = require 'tinycolor2'
 ColorThief = require 'color-thief/js/color-thief'
+Analytics = require 'universal-ga'
+
+Analytics.initialize 'UA-88882746-1'
 
 timeout = 4000
 

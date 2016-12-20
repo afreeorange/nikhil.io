@@ -1,6 +1,6 @@
 {
   "name": "nikhil.io",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Personal page",
   "main": "nikhil.io.js",
   "dependencies": {
@@ -10,7 +10,8 @@
     "jquery.backstretch": "^2.1.15",
     "node-sass": "^4.0.0",
     "progressbar.js": "^1.0.1",
-    "tinycolor2": "^1.4.1"
+    "tinycolor2": "^1.4.1",
+    "universal-ga": "^1.0.1"
   },
   "devDependencies": {
     "base64-font-loader": "0.0.4",
