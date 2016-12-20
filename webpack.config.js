@@ -1,8 +1,16 @@
 const webpack = require('webpack');
 const path = require('path');
+const package = require('./package.json');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const sassLintPlugin = require('sasslint-webpack-plugin');
+
+const headerMessage = `Well aren\'t _you_ a curious little kitten?\n \
+nikhil.io\n \
+@version ${package.version}\n \
+@built Mon Dec 19 2016 12:56:46 GMT-0600 (CST)\n \
+@link https://github.com/afreeorange/nikhil.io\n \
+@author Nikhil Anand <mail@nikhil.io>`;
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/nikhil.io.coffee'),
@@ -38,6 +46,7 @@ module.exports = {
     new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery"
-    })
+    }),
+    new webpack.BannerPlugin(headerMessage)
   ]
 };
