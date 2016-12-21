@@ -43,6 +43,7 @@ window.onload = ->
             console.error message
             $('#countdown').hide()
             $('#real-o').show()
+            $('#instagram a').hide()
             $('#instagram span').show()
 
         success: (response) ->
