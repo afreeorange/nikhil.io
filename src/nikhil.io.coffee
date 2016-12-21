@@ -8,6 +8,7 @@ ColorThief = require 'color-thief/js/color-thief'
 Analytics = require 'universal-ga'
 
 Analytics.initialize 'UA-88882746-1'
+Analytics.pageview '/'
 
 timeout = 4000
 
