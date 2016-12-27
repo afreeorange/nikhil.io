@@ -13,15 +13,27 @@ nikhil.io\n \
 @author Nikhil Anand <mail@nikhil.io>`;
 
 module.exports = {
-  entry: path.resolve(__dirname, 'src/nikhil.io.coffee'),
+  entry: path.resolve(__dirname, 'src/nikhil.io.js'),
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'nikhil.io.js',
     publicPath: '/'
   },
   module: {
+    preLoaders: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'eslint'
+      }
+    ],
     loaders: [
-      {test: /\.coffee$/, loader: 'coffee'},
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel',
+        query: {presets: ['es2015']}
+      },
       {test: /\.(pug|jade)$/, loader: 'pug'},
       {test: /\.sass$/, loader: 'style!css!sass'},
       {test: /\.(woff|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'base64-font'}
