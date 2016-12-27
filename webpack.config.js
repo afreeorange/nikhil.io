@@ -8,7 +8,7 @@ const sassLintPlugin = require('sasslint-webpack-plugin');
 const headerMessage = `Well aren\'t _you_ a curious little kitten?\n \
 nikhil.io\n \
 @version ${package.version}\n \
-@built Mon Dec 19 2016 12:56:46 GMT-0600 (CST)\n \
+@built ${Date()}\n \
 @link https://github.com/afreeorange/nikhil.io\n \
 @author Nikhil Anand <mail@nikhil.io>`;
 
