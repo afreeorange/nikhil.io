@@ -1,5 +1,10 @@
 require('./nikhil.io.sass');
 
+const instagramUserId = process.env.NIKHIL_IO_INSTAGRAM_UID;
+const instagramAccessToken = process.env.NIKHIL_IO_INSTAGRAM_TOKEN;
+const googleAnalyticsToken = process.env.NIKHIL_IO_GA_TOKEN;
+const rotationTimeout = 4000;
+
 // I REQUIRE ALL THESE THINGS.
 require('jquery.backstretch');
 const Instafeed = require('instafeed.js');
@@ -9,11 +14,8 @@ const ColorThief = require('color-thief/js/color-thief');
 const Analytics = require('universal-ga');
 
 // Set up Google Analytics
-Analytics.initialize('UA-88882746-1');
+Analytics.initialize(googleAnalyticsToken);
 Analytics.pageview('/');
-
-// Rotate background and colors after these many milliseconds
-const timeoutDuration = 4000;
 
 const rgbaFromColor = (tinyColorObject, opacity) => `rgba(
   ${Math.round(tinyColorObject._r)},
@@ -33,13 +35,13 @@ window.onload = () => {
     trailWidth: 10,
     trailColor: '#FF3300',
     easing: 'easeInOut',
-    duration: timeoutDuration,
+    duration: rotationTimeout,
   });
 
   const userFeed = new Instafeed({
     get: 'user',
-    userId: '964162',
-    accessToken: '964162.cf1e7d8.777feff80324427c8dcda940423b2c44',
+    userId: instagramUserId,
+    accessToken: instagramAccessToken,
     mock: true,
 
     error: (message) => {
@@ -112,7 +114,7 @@ window.onload = () => {
         }
 
         reverseSpin = !reverseSpin;
-        return setTimeout(cycleImages, timeoutDuration);
+        return setTimeout(cycleImages, rotationTimeout);
       };
 
       return cycleImages();

@@ -59,6 +59,13 @@ module.exports = {
       $: "jquery",
       jQuery: "jquery"
     }),
-    new webpack.BannerPlugin(headerMessage)
+    new webpack.BannerPlugin(headerMessage),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NIKHIL_IO_INSTAGRAM_TOKEN': JSON.stringify(process.env.NIKHIL_IO_INSTAGRAM_TOKEN),
+        'NIKHIL_IO_GA_TOKEN': JSON.stringify(process.env.NIKHIL_IO_GA_TOKEN),
+        'NIKHIL_IO_INSTAGRAM_UID': JSON.stringify(process.env.NIKHIL_IO_INSTAGRAM_UID)
+      }
+    })
   ]
 };
