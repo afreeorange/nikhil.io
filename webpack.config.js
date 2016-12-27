@@ -4,6 +4,7 @@ const package = require('./package.json');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const sassLintPlugin = require('sasslint-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const headerMessage = `Well aren\'t _you_ a curious little kitten?\n \
 nikhil.io\n \
@@ -35,7 +36,7 @@ module.exports = {
         query: {presets: ['es2015']}
       },
       {test: /\.(pug|jade)$/, loader: 'pug'},
-      {test: /\.sass$/, loader: 'style!css!sass'},
+      {test: /\.sass$/, loader: ExtractTextPlugin.extract('style', 'css!sass')},
       {test: /\.(woff|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'base64-font'}
     ]
   },
@@ -56,8 +57,8 @@ module.exports = {
       comments: false
     }),
     new webpack.ProvidePlugin({
-      $: "jquery",
-      jQuery: "jquery"
+      $: 'jquery',
+      jQuery: 'jquery'
     }),
     new webpack.BannerPlugin(headerMessage),
     new webpack.DefinePlugin({
@@ -66,6 +67,7 @@ module.exports = {
         'NIKHIL_IO_GA_TOKEN': JSON.stringify(process.env.NIKHIL_IO_GA_TOKEN),
         'NIKHIL_IO_INSTAGRAM_UID': JSON.stringify(process.env.NIKHIL_IO_INSTAGRAM_UID)
       }
-    })
+    }),
+    new ExtractTextPlugin('nikhil.io.css')
   ]
 };

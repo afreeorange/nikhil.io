@@ -1,7 +1,7 @@
 {
   "name": "nikhil.io",
-  "version": "2.2.3",
-  "description": "Personal page",
+  "version": "2.2.4",
+  "description": "Nikhil's personal page",
   "main": "nikhil.io.js",
   "dependencies": {
     "color-thief": "^2.2.2",
@@ -24,6 +24,7 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "2.2.3",
     "eslint-plugin-react": "^6.8.0",
+    "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.24.1",
     "node-sass": "^3.4.2",
     "pug": "^2.0.0-beta6",
