@@ -92,8 +92,12 @@ window.onload = () => {
             color: linkColor,
             'border-bottom': `3px solid ${borderColor}`,
           });
-          $('#container a').mouseenter = () => $(this).css({ 'border-bottom-color': linkColor });
-          $('#container a').mouseleave = () => $(this).css({ 'border-bottom-color': borderColor });
+          $('#container a').mouseenter(function () {
+            $(this).css({ 'border-bottom-color': linkColor });
+          });
+          $('#container a').mouseleave(function () {
+            $(this).css({ 'border-bottom-color': borderColor });
+          });
 
           if (reverseSpin) {
             bar.set(0);

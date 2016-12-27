@@ -1,6 +1,6 @@
 {
   "name": "nikhil.io",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "Personal page",
   "main": "nikhil.io.js",
   "dependencies": {
