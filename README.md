@@ -30,7 +30,7 @@ To use Babel and ESLint,
                 babel-preset-es2015 \
                 eslint \
                 eslint-loader \
-                --dev
+                --save-dev
 
 That's the base. I didn't want to author all ESLint rules by hand ([or not](http://rapilabs.github.io/eslintrc-generator)) and really like the [AirBnB Guidelines](https://github.com/airbnb/javascript) so
 
@@ -38,6 +38,6 @@ That's the base. I didn't want to author all ESLint rules by hand ([or not](http
                 eslint-plugin-import \
                 eslint-plugin-react \
                 eslint-plugin-jsx-a11y \
-                --dev
+                --save-dev
 
 That last dependency proved to be a pain: [1](https://github.com/verekia/js-stack-from-scratch/issues/81), [2](https://github.com/evcohen/eslint-plugin-jsx-a11y/issues/116), [3](https://github.com/eslint/eslint/issues/7338), [4](https://github.com/eslint/eslint/issues/6843) and many more. Oh the _joy_ of Javascript! [This](https://github.com/verekia/js-stack-from-scratch/issues/81#issuecomment-259158481) was the fix BTW.
