@@ -16,11 +16,11 @@ Analytics.pageview('/');
 const timeoutDuration = 4000;
 
 const rgbaFromColor = (tinyColorObject, opacity) => `rgba(
-    ${Math.round(tinyColorObject._r)},
-    ${Math.round(tinyColorObject._g)},
-    ${Math.round(tinyColorObject._b)},
-    ${opacity}
-  )`;
+  ${Math.round(tinyColorObject._r)},
+  ${Math.round(tinyColorObject._g)},
+  ${Math.round(tinyColorObject._b)},
+  ${opacity}
+)`;
 
 window.onload = () => {
   let reverseSpin = false;
