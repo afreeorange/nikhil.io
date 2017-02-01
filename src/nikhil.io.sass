@@ -1,21 +1,34 @@
 $white: #fff
 $black: #111
+$orange: #f90
+$blue: #369
 $hawkeye-yellow: #ffe100 // GO HAWKS
 
-@font-face
-    font-family: '85CA4713-1006-482F-8EDA-B24A9051644F';
-    font-style: normal;
-    font-weight: 300;
-    src: url('./fonts/85CA4713-1006-482F-8EDA-B24A9051644F/85CA4713-1006-482F-8EDA-B24A9051644F-300.woff') format('woff');
+@keyframes pulsate
+    0%
+        opacity: 1
+
+    50%
+        opacity: .1
+
+    100%
+        opacity: 1
 
 @font-face
-    font-family: '85CA4713-1006-482F-8EDA-B24A9051644F';
-    font-style: normal;
-    font-weight: 700;
-    src: url('./fonts/85CA4713-1006-482F-8EDA-B24A9051644F/85CA4713-1006-482F-8EDA-B24A9051644F-700.woff') format('woff');
+    font-family: '85CA4713-1006-482F-8EDA-B24A9051644F'
+    font-style: normal
+    font-weight: 300
+    src: url('./fonts/85CA4713-1006-482F-8EDA-B24A9051644F/85CA4713-1006-482F-8EDA-B24A9051644F-300.woff') format('woff')
+
+@font-face
+    font-family: '85CA4713-1006-482F-8EDA-B24A9051644F'
+    font-style: normal
+    font-weight: 700
+    src: url('./fonts/85CA4713-1006-482F-8EDA-B24A9051644F/85CA4713-1006-482F-8EDA-B24A9051644F-700.woff') format('woff')
+
 
 body
-    background: $black
+    background: lighten($black, 5)
     color: $hawkeye-yellow
     font-family: '85CA4713-1006-482F-8EDA-B24A9051644F', 'Inconsolata'
     font-kerning: normal
@@ -52,6 +65,16 @@ body
         opacity: 1
         transition: opacity .5s ease
 
+    svg
+        animation: pulsate 2s ease-out;
+        animation-iteration-count: infinite;
+        display: inline-block
+        width: 1.5em
+
+        path,
+        circle
+            fill: $white
+
     span
         color: lighten($black, 10)
         display: none
@@ -64,21 +87,20 @@ body
     width: 31em
 
     h1
+        color: lighten($orange, 10)
         font-size: 3em
         font-weight: 700
         margin-bottom: .75em
         text-shadow: 1px 1px 25px $black
         transition: color 1s ease
 
-        #real-o
-            display: none
-
         #countdown
-            display: inline-block
+            display: none
             height: .525em
             width: .525em
 
     p
+        color: $white
         font-size: 1.5em
         font-weight: 300
         text-shadow: 1px 1px 25px $black
@@ -97,12 +119,13 @@ body
     a
         border-bottom-style: solid
         border-bottom-width: 3px
-        color: $hawkeye-yellow
+        // border-bottom-color: darken($white, 75)
+        color: lighten($blue, 25)
         text-decoration: none
         transition: border-bottom-color .25s
 
         :hover
-            border-bottom-color: lighten($hawkeye-yellow, 10)
+            border-bottom-color: darken($white, 25)
             transition: border-bottom-color .25s
 
     nav
@@ -135,7 +158,7 @@ body
 
                 g
                     polyline
-                        fill: $hawkeye-yellow
+                        fill: $white
                         opacity: .4
                         transition: fill .5s
 
@@ -148,7 +171,7 @@ body
                 width: .65em
 
                 path
-                    fill: $black
+                    fill: $white
                     transition: fill .5s
 
 @media screen and (max-width: 750px)

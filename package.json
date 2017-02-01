@@ -40,7 +40,7 @@
   "scripts": {
     "clean": "rm -rfv dist/",
     "build": "webpack --optimize-minimize",
-    "watch": "webpack --optimize-minimize --watch",
+    "watch": "webpack --watch",
     "serve": "rm -rfv dist/ && webpack-dev-server --content-base dist/"
   },
   "repository": {

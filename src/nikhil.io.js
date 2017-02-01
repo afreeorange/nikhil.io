@@ -46,8 +46,6 @@ window.onload = () => {
 
     error: (message) => {
       console.error(message);
-      $('#countdown').hide();
-      $('#real-o').show();
       $('#instagram a').hide();
       return $('#instagram span').show();
     },
@@ -60,6 +58,11 @@ window.onload = () => {
         backgroundImage.src = instagramImage.images.standard_resolution.url;
 
         backgroundImage.onload = () => {
+          if (i === 1) {
+            $('#real-o').hide();
+            $('#countdown').css('display', 'inline-block');
+          }
+
           const dominantColor = colorThief.getColor(backgroundImage);
           const colors = {
             r: dominantColor[0],
@@ -92,10 +95,10 @@ window.onload = () => {
             color: linkColor,
             'border-bottom': `3px solid ${borderColor}`,
           });
-          $('#container a').mouseenter(function () {
+          $('#container a').mouseenter(() => {
             $(this).css({ 'border-bottom-color': linkColor });
           });
-          $('#container a').mouseleave(function () {
+          $('#container a').mouseleave(() => {
             $(this).css({ 'border-bottom-color': borderColor });
           });
 
