@@ -6,7 +6,7 @@ const googleAnalyticsToken = process.env.NIKHIL_IO_GA_TOKEN;
 const rotationTimeout = 4000;
 
 // I REQUIRE ALL THESE THINGS.
-require('jquery.backstretch');
+require('jquery-backstretch');
 const Instafeed = require('instafeed.js');
 const ProgressBar = require('progressbar.js');
 const tinycolor = require('tinycolor2');
