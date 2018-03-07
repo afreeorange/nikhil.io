@@ -3,18 +3,14 @@
 
 Personal page.
 
-Installation
-------------
-
 ```bash
-# Install dependencies
-yarn
+# Initialize
+npm install
 
 # Build
-yarn run clean && yarn run build
+npm run build
+
+# Develop. Exporting DEBUG disables uglification and enables source-maps
+export DEBUG=1
+npm start
 ```
-
-Errors
-------
-
-Issues with `node-sass` and `node-gyp` on OS X. Rebuilding them (`npm rebuild node-sass node-gyp`) solves build problems.

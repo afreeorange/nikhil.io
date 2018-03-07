@@ -1,8 +1,0 @@
----
-extends: airbnb-base
-env:
-  browser: 1
-  jquery: 1
-rules:
-  no-underscore-dangle: 0 # Can't help this due to ColorThief
-  no-console: 0

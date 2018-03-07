@@ -6,8 +6,8 @@ charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
 
-[*.pug, *.sass]
-indent_size = 4
-
 [*.js]
 indent_size = 2
+
+[*.sass, *.html]
+indent_size = 4
