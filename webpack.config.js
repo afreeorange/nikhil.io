@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const package = require('./package.json');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackBannerPlugin = require('html-webpack-banner-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
@@ -24,7 +25,6 @@ const webpackPlugins = [
   }),
   new HTMLWebpackPlugin({
     template: './src/nikhil.io.html',
-    favicon: './src/favicon.ico',
     minify: {
       collapseWhitespace: true,
       html5: true,
@@ -32,6 +32,22 @@ const webpackPlugins = [
       removeAttributeQuotes: true,
       removeComments: true,
       removeEmptyAttributes: true,
+    },
+  }),
+  new FaviconsWebpackPlugin({
+    logo: './src/assets/favicon/favicon.png',
+    prefix: 'ico/',
+    icons: {
+      android: false,
+      appleIcon: false,
+      appleStartup: false,
+      coast: false,
+      favicons: true,
+      firefox: false,
+      opengraph: true,
+      twitter: false,
+      yandex: false,
+      windows: false,
     },
   }),
   new ExtractTextPlugin('nikhil.io.css'),
