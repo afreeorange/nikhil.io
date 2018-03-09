@@ -84,8 +84,11 @@ $hawkeye-yellow: #ffe100 // GO HAWKS
 $red: #f30
 $white: #fff
 
-.mobile-hide
-    display: none
+@keyframes fadein
+    from
+        opacity: 0
+    to
+        opacity: 1
 
 body
     background-color: $dark-yellow
@@ -99,15 +102,16 @@ body
     text-align: left
 
 .background
+    animation: fadein 4s
     display: block
     filter: blur(1px)
     left: 0
     position: absolute
     top: 0
     z-index: -999
-    transition: opacity 10s
 
 #corpus
+    animation: fadein 2s
     padding: 3.5em
     width: 31em
 

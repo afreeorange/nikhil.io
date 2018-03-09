@@ -6,7 +6,7 @@ const googleAnalyticsToken = 'UA-88882746-1';
 
 window.onload = () => {
   Particles.init({
-    color: '#FFFF00',
+    color: '#ffff4e',
     connectParticles: true,
     maxParticles: 90,
     selector: '.background',
