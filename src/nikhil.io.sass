@@ -79,14 +79,16 @@ table
     src: url('assets/fonts/85CA4713-1006-482F-8EDA-B24A9051644F/85CA4713-1006-482F-8EDA-B24A9051644F-700.woff') format('woff')
 
 $black: #111
-$hawkeye-yellow: #ffe100 // GO HAWKS
 $dark-yellow: #ffc600
+$hawkeye-yellow: #ffe100 // GO HAWKS
+$red: #f30
+$white: #fff
 
 .mobile-hide
     display: none
 
 body
-    background-color: #fff
+    background-color: $dark-yellow
     color: $black
     font-family: '85CA4713-1006-482F-8EDA-B24A9051644F', "Helvetica Neue", Helvetica, arial, sans-serif
     font-kerning: normal
@@ -98,11 +100,12 @@ body
 
 .background
     display: block
-    filter: blur(3px)
+    filter: blur(1px)
     left: 0
     position: absolute
     top: 0
     z-index: -999
+    transition: opacity 10s
 
 #corpus
     padding: 3.5em
@@ -110,7 +113,7 @@ body
 
 header
     h1
-        color: $dark-yellow
+        color: $white
         font-weight: 700
         font-size: 3.25em
         letter-spacing: -1px
@@ -138,12 +141,14 @@ nav
             margin-right: 1.5em
 
             a
-                border-bottom: 3px solid $dark-yellow
+                border-bottom: 3px solid $black
                 color: $black
                 text-decoration: none
 
             a:hover, a:focus, a:active
-                background: $hawkeye-yellow
+                background: $red
+                border-bottom: 3px solid $red
+                color: $white
                 transition: background 0.3s
 
 #i-heart-dsm
@@ -172,7 +177,7 @@ nav
             width: .65em
 
             path
-                fill: $dark-yellow
+                fill: $red
                 transition: fill .5s
 
 @media screen and (max-width: 750px)
@@ -192,9 +197,6 @@ nav
         font-size: 90%
 
 @media screen and (max-width: 520px)
-    body
-        font-size: 90%
-
     #corpus
         padding: 1em
         width: auto
@@ -204,7 +206,7 @@ nav
                 display: none
 
     nav
-        font-size: 1.3em
+        font-size: 1.4em
 
         .mobile-hide
             display: block
@@ -216,4 +218,4 @@ nav
             li
                 display: inline-block
                 margin: 0 0 1em
-                width: 33%
+                width: 50%

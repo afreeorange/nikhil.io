@@ -44,7 +44,7 @@
     "uglifyjs-webpack-plugin": "^1.2.2",
     "webpack": "^3.11.0",
     "webpack-cli": "^2.0.9",
-    "webpack-dev-server": "^3.0.0"
+    "webpack-dev-server": "^2.11.2"
   },
   "dependencies": {
     "particlesjs": "^2.2.1",
