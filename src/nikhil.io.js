@@ -1,5 +1,5 @@
 import Particles from 'particlesjs';
-import { ua as Analytics } from 'universal-ga';
+import ua from 'universal-ga';
 import './nikhil.io.sass';
 
 const googleAnalyticsToken = 'UA-88882746-1';
@@ -26,6 +26,6 @@ window.onload = () => {
     ],
   });
 
-  Analytics.initialize(googleAnalyticsToken);
-  Analytics.pageview('/');
+  ua.initialize(googleAnalyticsToken);
+  ua.pageview('/');
 };
