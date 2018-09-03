@@ -83,6 +83,7 @@ $dark-yellow: #ffc600
 $hawkeye-yellow: #ffe100 // GO HAWKS
 $red: #f30
 $white: #fff
+$transition-delay: .25s
 
 @keyframes fadein
     from
@@ -104,6 +105,9 @@ body
 a
     color: $black
     text-decoration: none
+
+br
+    display: none
 
 .background
     animation: fadein 4s
@@ -145,11 +149,31 @@ nav
         padding: 0
 
         li
-            display: inline
-            margin-right: 1.5em
+            display: inline-block
+            margin-right: 2em
 
-            a
-                border-bottom: 3px solid $black
+            &:nth-child(n+3)
+                a
+                    border-bottom: 3px solid $black
+
+                    &:hover
+                        border-bottom: 3px solid $red
+
+            &:nth-child(-n+3)
+                width: 1.75em
+
+                a
+                    position: relative
+
+                    svg
+                        position: absolute
+                        bottom: -15px
+
+                    &:hover
+                        svg
+                            path
+                                fill: $red
+                                transition: fill $transition-delay
 
 #i-heart-dsm
     margin-left: .5em
@@ -166,7 +190,7 @@ nav
             g
                 polyline
                     fill: $black
-                    transition: fill .5s
+                    transition: fill $transition-delay
 
     #heart
         left: .5em
@@ -178,7 +202,7 @@ nav
 
             path
                 fill: $red
-                transition: fill .5s
+                transition: fill $transition-delay
 
 @media screen and (max-width: 750px)
     body
@@ -206,22 +230,23 @@ nav
                 display: none
 
     nav
-        font-size: 1.4em
-
-        .mobile-hide
-            display: block
+        font-size: 1.5em
+        margin-top: 1em
 
         ul
-            text-align: left
-            width: 100%
-
             li
-                display: inline-block
-                margin: 0 0 1em
-                width: 50%
+                &:nth-child(-n+3)
+                    margin-right: 2.5em
+                
+                &:nth-child(n+3)
+                    margin-right: 2.5em
+                    margin-top: 2em
+
+            br
+                display: block
 
 a:hover, a:focus, a:active
     background: $red
     border-bottom: 3px solid $red
     color: $white
-    transition: background 0.3s
+    transition: background $transition-delay
