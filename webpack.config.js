@@ -1,12 +1,12 @@
 const path = require('path');
 const webpack = require('webpack');
 const package = require('./package.json');
+
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackBannerPlugin = require('html-webpack-banner-plugin');
-const StyleLintPlugin = require('stylelint-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 const outputFolder = './dist';
@@ -51,7 +51,6 @@ const webpackPlugins = [
     },
   }),
   new ExtractTextPlugin('nikhil.io.css'),
-  new StyleLintPlugin(),
   new webpack.BannerPlugin(buildBanner),
 ];
 if (process.env.DEBUG) {
@@ -77,7 +76,6 @@ module.exports = {
                 minimize: true,
               },
             },
-            'postcss-loader',
             'sass-loader',
           ],
         }),
