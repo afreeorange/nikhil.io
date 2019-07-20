@@ -35,3 +35,6 @@ jobs:
           name: Deploying to S3
           command: aws s3 sync dist/ s3://nikhil.io/
 
+      - run:
+          name: Invalidating CloudFront distribution
+          command: aws cloudfront create-invalidation --distribution-id E1YXRY7X6OHL2S --paths '/*'
