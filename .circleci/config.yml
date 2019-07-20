@@ -1,0 +1,37 @@
+# https://circleci.com/docs/2.0/language-javascript
+
+version: 2.1
+orbs:
+  aws-cli: circleci/aws-cli@0.1.13
+jobs:
+  build:
+    docker:
+      - image: circleci/node:12
+    steps:
+      - aws-cli/install
+      - checkout
+
+      # Download and cache dependencies. Use the latest cache
+      # if no exact match is found.
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+
+      - run:
+          name: Installing dependencies
+          command: yarn install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      - run:
+          name: Building the site
+          command: yarn build
+
+      - run:
+          name: Deploying to S3
+          command: aws s3 sync dist/ s3://nikhil.io/
+
