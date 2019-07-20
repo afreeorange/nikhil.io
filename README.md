@@ -5,12 +5,11 @@ Personal page.
 
 ```bash
 # Initialize
-npm install
+yarn
 
 # Build
-npm run build
+yarn build
 
 # Develop. Exporting DEBUG disables uglification and enables source-maps
-export DEBUG=1
-npm start
+export DEBUG=1 && yarn start
 ```
