@@ -1,14 +1,11 @@
 # https://circleci.com/docs/2.0/language-javascript
 
 version: 2.1
-orbs:
-  aws-cli: circleci/aws-cli@0.1.13
 jobs:
   build:
     docker:
-      - image: circleci/node:12
+      - image: afreeorange/build:latest
     steps:
-      - aws-cli/install
       - checkout
 
       # Download and cache dependencies. Use the latest cache
