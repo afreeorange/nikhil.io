@@ -98,7 +98,7 @@ body
     font-kerning: normal
     font-size: 115%
     font-variant: discretionary-ligatures
-    line-height: 1.5
+    line-height: 1.75
     overflow: hidden
     text-align: left
 
@@ -123,6 +123,9 @@ br
     padding: 3.5em
     width: 31em
 
+a
+    border-bottom: 3px solid $black
+
 header
     h1
         color: $white
@@ -136,44 +139,10 @@ main
         color: $black
         font-size: 1.5em
         font-weight: 300
+        margin-bottom: 1em
 
         strong
             font-weight: 700
-
-nav
-    font-size: 1.25em
-    margin-top: 2em
-
-    ul
-        margin: 0
-        padding: 0
-
-        li
-            display: inline-block
-            margin-right: 2em
-
-            &:nth-child(n+3)
-                a
-                    border-bottom: 3px solid $black
-
-                    &:hover
-                        border-bottom: 3px solid $red
-
-            &:nth-child(-n+3)
-                width: 1.75em
-
-                a
-                    position: relative
-
-                    svg
-                        position: absolute
-                        bottom: -15px
-
-                    &:hover
-                        svg
-                            path
-                                fill: $red
-                                transition: fill $transition-delay
 
 #i-heart-dsm
     margin-left: .5em
@@ -195,7 +164,7 @@ nav
     #heart
         left: .5em
         position: absolute
-        top: -.2em
+        top: -.3em
 
         svg
             width: .65em
@@ -237,7 +206,7 @@ nav
             li
                 &:nth-child(-n+3)
                     margin-right: 2.5em
-                
+
                 &:nth-child(n+3)
                     margin-right: 2.5em
                     margin-top: 2em
