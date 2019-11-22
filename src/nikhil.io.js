@@ -1,6 +1,6 @@
 import Particles from 'particlesjs';
 import ua from 'universal-ga';
-import './nikhil.io.sass';
+import './nikhil.io.scss';
 
 const googleAnalyticsToken = 'UA-88882746-1';
 

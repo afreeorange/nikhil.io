@@ -66,7 +66,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.sass$/,
+        test: /\.s(c|a)ss$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [

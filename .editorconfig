@@ -1,13 +1,13 @@
 root = true
 
 [*]
-indent_style = space
 charset = utf-8
+indent_style = space
+indent_size = 4
+tab_width = 4
 trim_trailing_whitespace = true
 insert_final_newline = true
 
-[*.js]
+[*.{scss,sass,json,js}]
 indent_size = 2
-
-[*.sass, *.html]
-indent_size = 4
+tab_width = 2
