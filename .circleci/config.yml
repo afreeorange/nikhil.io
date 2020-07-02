@@ -26,13 +26,20 @@ jobs:
 
       - run:
           name: Building the site
-          command: parcel build src/index.html --no-source-maps
+          command: |
+            parcel build src/index.html --no-source-maps
+            find dist/ -type f -exec gzip -9 "{}" \; -exec mv "{}.gz" "{}" \;
 
       - run:
           name: Deploying to S3
-          command: aws s3 sync dist/ s3://nikhil.io/
+          command: |
+            aws s3 sync dist/ s3://nikhil.io/ \
+              --cache-control max-age=315360000 \
+              --content-encoding gzip
 
       - run:
           name: Invalidating CloudFront distribution
-          command: aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION_ID} --paths '/index.html'
-
+          command: |
+            aws cloudfront create-invalidation \
+              --distribution-id ${CLOUDFRONT_DISTRIBUTION_ID} \
+              --paths '/index.html'
