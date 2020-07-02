@@ -8,8 +8,8 @@ Personal page. Uses [ParcelJS](https://parceljs.org/).
 npm i
 
 # Develop
-parcel serve src/index.html
+npm run start
 
 # Build
-parcel build src/index.html --no-source-maps
+npm run build
 ```
