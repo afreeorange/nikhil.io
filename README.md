@@ -1,15 +1,15 @@
 [nikhil.io](https://nikhil.io)
 ==============================
 
-Personal page.
+Personal page. Uses [ParcelJS](https://parceljs.org/).
 
 ```bash
 # Initialize
-yarn
+npm i
+
+# Develop
+parcel serve src/index.html
 
 # Build
-yarn build
-
-# Develop. Exporting DEBUG disables uglification and enables source-maps
-export DEBUG=1 && yarn start
+parcel build src/index.html --no-source-maps
 ```
