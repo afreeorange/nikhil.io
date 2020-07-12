@@ -45,12 +45,17 @@ p {
 body {
   animation: fadein 3s;
   background-color: var(--yellow);
-  background-image: radial-gradient(
+  /* background-image: radial-gradient(
     circle at 1px 1px,
     rgba(255, 51, 0, 0.5) 1px,
     transparent 0
-  );
-  background-size: 5px 5px;
+  ); */
+  /* background-size: 5px 5px; */
+
+  /**
+   * Source: http://www.patternify.com/
+   */
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAALUlEQVQoU2P846/5n4GBgYFl43VGEI0LMBKtEJsJ2DRjtY5ohdhsId6NQ8AzANjNIAvLuy+/AAAAAElFTkSuQmCC);
   color: var(--black);
   font-family: "ac347ac6-621e-4773-a532-841dfe09c43d", -apple-system,
     BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu,
@@ -66,8 +71,9 @@ h1 {
   color: var(--red);
   font-size: 4.2rem;
   letter-spacing: -2px;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   margin-left: 0.5rem;
+  display: inline-block;
 }
 
 p {
@@ -83,6 +89,11 @@ p > span {
   display: inline;
   padding: 0 0.5rem;
 }
+
+/* p:nth-child(4) > span {
+  background: var(--red);
+  color: var(--white);
+} */
 
 a {
   border-bottom: 3px solid var(--red);
@@ -112,20 +123,90 @@ a:active {
 
 @media screen and (max-width: 680px) {
   main {
-    margin: 5%;
-    width: 80%;
+    margin: 2.5%;
+    width: 90%;
   }
   h1 {
     font-size: 4rem;
     margin-bottom: 1rem;
     text-align: center;
+    display: block;
   }
   p {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
   .iowa {
     height: 2rem;
     margin-top: 0;
     width: 2rem;
   }
+}
+
+/**
+ * Stolen from:
+ * https://github.com/animate-css/animate.css/blob/master/animate.css
+ */
+@-webkit-keyframes tada {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  10%,
+  20% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+  }
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: scale3d(1.25, 1.25, 1.25) rotate3d(0, 0, 1, 3deg);
+    transform: scale3d(1.25, 1.25, 1.25) rotate3d(0, 0, 1, 3deg);
+  }
+  40%,
+  60%,
+  80% {
+    -webkit-transform: scale3d(1.25, 1.25, 1.25) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(1.25, 1.25, 1.25) rotate3d(0, 0, 1, -3deg);
+  }
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes tada {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  10%,
+  20% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+  }
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: scale3d(1.25, 1.25, 1.25) rotate3d(0, 0, 1, 3deg);
+    transform: scale3d(1.25, 1.25, 1.25) rotate3d(0, 0, 1, 3deg);
+  }
+  40%,
+  60%,
+  80% {
+    -webkit-transform: scale3d(1.25, 1.25, 1.25) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(1.25, 1.25, 1.25) rotate3d(0, 0, 1, -3deg);
+  }
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.tada {
+  -webkit-animation-name: tada;
+  animation-name: tada;
+  animation-duration: 1s;
+  animation-delay: 1s;
 }
