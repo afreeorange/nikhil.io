@@ -1,15 +1,15 @@
 [nikhil.io](https://nikhil.io)
 ==============================
 
-Personal page. Uses [ParcelJS](https://parceljs.org/).
+Uses [ParcelJS](https://parceljs.org/).
 
 ```bash
 # Initialize
-npm i
+yarn
 
 # Develop
-npm run start
+yarn start
 
 # Build
-npm run build
+yarn build
 ```
