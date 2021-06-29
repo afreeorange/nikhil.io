@@ -1,7 +1,8 @@
 :root {
+  --hover-animation-delay: 0.25s;
+
   --black: #111;
   --red: #f30;
-  --hover-animation-delay: 0.25s;
   --white: #fff;
   --yellow: #ffc600;
 }
