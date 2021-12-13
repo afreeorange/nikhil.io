@@ -17,8 +17,8 @@ jobs:
       # if no exact match is found.
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
+            - v1-node-dependencies-{{ checksum "package.json" }}
+            - v1-node-dependencies-
 
       - run:
           name: Installing dependencies
@@ -27,18 +27,15 @@ jobs:
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+          key: v1-node-dependencies-{{ checksum "package.json" }}
 
       - run:
           name: Building the site
-          command: |
-            yarn build
-            find dist/ -type f -exec gzip -9 "{}" \; -exec mv "{}.gz" "{}" \;
+          command: yarn build
 
       - run:
           name: Compressing output
-          command: |
-            find dist/ -type f -exec gzip -9 "{}" \; -exec mv "{}.gz" "{}" \;
+          command: find dist/ -type f -exec gzip -9 "{}" \; -exec mv "{}.gz" "{}" \;
 
       - aws-s3/sync:
           aws-region: AWS_DEFAULT_REGION
