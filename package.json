@@ -1,12 +1,11 @@
 {
   "scripts": {
-    "build": "parcel build src/index.html --no-source-maps",
+    "build": "npx parcel build src/index.html --no-source-maps",
     "clean": "rm -rf dist/",
-    "start": "parcel serve src/index.html"
+    "start": "npx parcel serve src/index.html"
   },
   "devDependencies": {
-    "cssnano": "^4.1.10",
-    "sass": "^1.32.8"
+    "parcel": "^2.0.1"
   },
   "dependencies": {}
 }
