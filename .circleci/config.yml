@@ -4,7 +4,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: afreeorange/build:latest
+      - image: cimg/node:17.2.0
     steps:
       - checkout
 
@@ -17,7 +17,7 @@ jobs:
 
       - run:
           name: Installing dependencies
-          command: npm i
+          command: yarn
 
       - save_cache:
           paths:
@@ -27,7 +27,12 @@ jobs:
       - run:
           name: Building the site
           command: |
-            parcel build src/index.html --no-source-maps
+            yarn build
+            find dist/ -type f -exec gzip -9 "{}" \; -exec mv "{}.gz" "{}" \;
+
+      - run:
+          name: Compressing output
+          command: |
             find dist/ -type f -exec gzip -9 "{}" \; -exec mv "{}.gz" "{}" \;
 
       - run:
