@@ -44,8 +44,11 @@ p {
 }
 
 body {
-  animation: fadein 3s;
   background-color: var(--yellow);
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAALUlEQVQoU2P846/5n4GBgYFl43VGEI0LMBKtEJsJ2DRjtY5ohdhsId6NQ8AzANjNIAvLuy+/AAAAAElFTkSuQmCC);
+
+  /* color: var(--black); */
+  /* animation: fadein 3s; */
   /* background-image: radial-gradient(
     circle at 1px 1px,
     rgba(255, 51, 0, 0.5) 1px,
@@ -56,8 +59,6 @@ body {
   /**
    * Source: http://www.patternify.com/
    */
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAALUlEQVQoU2P846/5n4GBgYFl43VGEI0LMBKtEJsJ2DRjtY5ohdhsId6NQ8AzANjNIAvLuy+/AAAAAElFTkSuQmCC);
-  color: var(--black);
   font-family: "ac347ac6-621e-4773-a532-841dfe09c43d", -apple-system,
     BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu,
     roboto, noto, segoe ui, arial, sans-serif;
@@ -209,5 +210,5 @@ a:active {
   -webkit-animation-name: tada;
   animation-name: tada;
   animation-duration: 1s;
-  animation-delay: 1s;
+  animation-delay: 0.25s;
 }
