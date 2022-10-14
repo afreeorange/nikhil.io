@@ -28,6 +28,11 @@
   box-sizing: border-box;
 }
 
+::selection {
+  background: var(--red);
+  color: var(--white);
+}
+
 body,
 h1,
 p {
