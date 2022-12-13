@@ -1,0 +1,10 @@
+/* TEAM */
+	Author: Nikhil Anand
+	Contact: mail [at] nikhil.io
+	Twitter: @afreeorange
+	From: Des Moines, Iowa, USA
+
+/* SITE */
+	Last update: 2022-12-13T16:17:59Z
+	Language: English
+	Software: HTML, CSS, TypeScript, ParcelJS
