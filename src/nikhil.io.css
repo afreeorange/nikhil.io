@@ -67,6 +67,7 @@ body {
   font-family: "ac347ac6-621e-4773-a532-841dfe09c43d", -apple-system,
     BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu,
     roboto, noto, segoe ui, arial, sans-serif;
+  font-display: swap;
 }
 
 main {
