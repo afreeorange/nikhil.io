@@ -1,9 +1,9 @@
 {
   "scripts": {
-    "build": "npx parcel build src/index.html --no-source-maps",
+    "build": "yarn clean && npx parcel build src/index.html --no-source-maps && cp src/robots.txt dist/",
     "clean": "rm -rf dist/",
     "format": "npx prettier src/ --write",
-    "start": "npx parcel"
+    "start": "npx parcel src/*.html"
   },
   "source": "src/index.html",
   "devDependencies": {
