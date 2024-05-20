@@ -131,6 +131,7 @@ p {
 @media screen and (max-width: 745px) {
   main {
     max-width: 18rem;
+    margin: 0!important;
 
     &::before {
       width: 65%;
