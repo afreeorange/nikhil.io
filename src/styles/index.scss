@@ -55,7 +55,7 @@ h1 {
   --lines: 1px;
 
   mask: repeating-radial-gradient(
-    circle at 23.25% 57.85%,
+    circle at 112px 49px,
     #000,
     var(--lines),
     #000,
@@ -131,7 +131,7 @@ p {
 @media screen and (max-width: 745px) {
   main {
     max-width: 18rem;
-    margin: 0!important;
+    margin: 0 !important;
 
     &::before {
       width: 65%;
