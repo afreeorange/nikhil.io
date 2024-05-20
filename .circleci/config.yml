@@ -1,4 +1,4 @@
-# References
+# References:
 # ----------
 # https://circleci.com/docs/2.0/language-javascript
 # https://pnpm.io/continuous-integration#circleci
@@ -7,7 +7,7 @@
 version: 2.1
 
 orbs:
-  aws-s3: circleci/aws-s3@4.0.0
+  aws-s3: circleci/aws-s3@2.0.0
 
 jobs:
   build:
