@@ -24,15 +24,16 @@ body {
 }
 
 main {
-  max-width: 30rem;
-  margin-left: 5%;
-  margin-top: 5%;
+  max-width: 32rem;
+  padding: 1rem;
+  margin: 5% 0 0 5%;
+  box-sizing: border-box;
 
   &::before {
     content: "";
     position: absolute;
     top: 0;
-    right: -2.5rem;
+    right: 0;
     background: url("../assets/bg.png") top right no-repeat;
     background-size: contain;
     width: 50%;
@@ -130,7 +131,6 @@ p {
 @media screen and (max-width: 745px) {
   main {
     max-width: 18rem;
-    padding: 0 5% 5% 0;
 
     &::before {
       width: 65%;
@@ -149,7 +149,7 @@ p {
     }
 
     p:nth-of-type(1) {
-      margin-top: 350px;
+      margin-top: 325px;
     }
   }
 }
