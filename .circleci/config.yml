@@ -24,9 +24,9 @@ jobs:
       - run:
           name: Install pnpm package manager
           command: |
-            corepack enable
-            corepack prepare pnpm@latest-9 --activate
-            pnpm config set store-dir .pnpm-store
+            sudo corepack enable
+            sudo corepack prepare pnpm@latest-9 --activate
+            sudo pnpm config set store-dir .pnpm-store
 
       - run:
           name: Install Dependencies
