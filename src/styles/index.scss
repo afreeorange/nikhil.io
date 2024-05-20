@@ -37,19 +37,32 @@ main {
     background-size: contain;
     width: 50%;
     height: 95%;
-    filter: invert(1) brightness(0.2);
+    filter: invert(1) brightness(0.25);
     z-index: -9;
   }
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
   letter-spacing: -2px;
 
   a {
     text-decoration: none;
     color: $highlight-light;
   }
+
+  --lines: 1px;
+
+  mask: repeating-radial-gradient(
+    circle at 23.25% 57.85%,
+    #000,
+    var(--lines),
+    #000,
+    0,
+    /* transition hints make code easier to manage */ #0000,
+    calc(var(--lines) * 2),
+    #0000 0 /* trailing 0 is part of the hard stop logic */
+  );
 }
 
 p {
@@ -71,6 +84,28 @@ p {
     &:hover {
       background: $highlight-light;
       color: $background;
+    }
+  }
+
+  small {
+    color: darken($foreground, 70%);
+    font-size: 70%;
+    display: block;
+
+    a {
+      color: darken($foreground, 70%);
+      text-decoration-color: darken($foreground, 70%);
+      text-decoration-thickness: 1px;
+
+      &:hover {
+        text-decoration-color: $highlight-light;
+      }
+    }
+  }
+
+  &:nth-of-type(3) {
+    span::after {
+      content: "🐙";
     }
   }
 }
@@ -95,6 +130,7 @@ p {
 @media screen and (max-width: 745px) {
   main {
     max-width: 18rem;
+    padding: 0 5% 5% 0;
 
     &::before {
       width: 65%;
@@ -103,16 +139,6 @@ p {
 }
 
 @media screen and (max-width: 650px) {
-  main {
-    max-width: 15rem;
-
-    &::before {
-      width: 60%;
-    }
-  }
-}
-
-@media screen and (max-width: 500px) {
   main {
     max-width: 100%;
 

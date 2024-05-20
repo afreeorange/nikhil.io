@@ -1,36 +1,47 @@
+# References
+# ----------
 # https://circleci.com/docs/2.0/language-javascript
+# https://pnpm.io/continuous-integration#circleci
+# https://circleci.com/developer/orbs/orb/circleci/aws-s3
 
 version: 2.1
 
 orbs:
-  aws-s3: circleci/aws-s3@2.0.0
+  aws-s3: circleci/aws-s3@4.0.0
 
 jobs:
   build:
     docker:
-      - image: cimg/node:17.2.0
+      - image: cimg/node:22.2.0
     steps:
       - checkout
 
-      # Download and cache dependencies. Use the latest cache
-      # if no exact match is found.
       - restore_cache:
+          name: Restore pnpm Package Cache
           keys:
-            - v1-node-dependencies-{{ checksum "package.json" }}
-            - v1-node-dependencies-
+            - pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
 
       - run:
-          name: Installing dependencies
-          command: yarn
+          name: Install pnpm package manager
+          command: |
+            corepack enable
+            corepack prepare pnpm@latest-9 --activate
+            pnpm config set store-dir .pnpm-store
+
+      - run:
+          name: Install Dependencies
+          command: |
+            pnpm install
 
       - save_cache:
+          name: Save pnpm Package Cache
+          key: pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
           paths:
-            - node_modules
-          key: v1-node-dependencies-{{ checksum "package.json" }}
+            - .pnpm-store
 
       - run:
           name: Building the site
-          command: yarn build
+          command: pnpm build
 
       - run:
           name: Compressing output
@@ -52,4 +63,4 @@ jobs:
           command: |
             aws cloudfront create-invalidation \
               --distribution-id ${CLOUDFRONT_DISTRIBUTION_ID} \
-              --paths '/index.html'
+              --paths '/*'
