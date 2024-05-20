@@ -2,13 +2,11 @@
 
 ```bash
 # Initialize
-yarn
+pnpm i
 
 # Develop
-yarn start
+pnpm dev
 
 # Build
-yarn build
+pnpm build
 ```
-
-Parcel is overkill but I plan on doing something with JS/TS soon.

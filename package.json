@@ -1,14 +1,17 @@
 {
+  "name": "nikhil.io",
+  "version": "3.0.0",
   "scripts": {
-    "build": "yarn clean && npx parcel build src/*.html --no-source-maps && cp src/robots.txt dist/",
-    "clean": "rm -rf dist/",
-    "format": "npx prettier src/ --write",
-    "start": "npx parcel src/*.html"
+    "dev": "parcel 'src/*.pug'",
+    "build": "pnpm run clean && parcel build && cp src/assets/robots.txt dist/",
+    "clean": "rm -rf dist .parcel-cache"
   },
-  "source": "src/index.html",
+  "author": "Nikhil Anand",
+  "license": "UNLICENSED",
+  "private": true,
   "devDependencies": {
-    "parcel": "^2.8.1",
-    "prettier": "^2.8.1"
-  },
-  "dependencies": {}
+    "@parcel/transformer-pug": "2.12.0",
+    "@parcel/transformer-sass": "2.12.0",
+    "parcel": "^2.12.0"
+  }
 }
